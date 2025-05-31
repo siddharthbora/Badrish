@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badrish Textiles – Premium Woven Fabrics Manufacturer</title>
+    <link rel="icon" href="logo2.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- AOS Animation CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .btn-blue {
+            background: #0077b6;
+            color: #fff;
+            border-radius: 2rem;
+            border: none;
+            font-weight: 600;
+        }
+
+        .btn-blue:hover {
+            background: #005f8a;
+            color: #fff;
+        }
+
+        .btn-pink {
+            background: #e63946;
+            color: #fff;
+            border-radius: 2rem;
+            border: none;
+            font-weight: 600;
+        }
+
+        .btn-pink:hover {
+            background: #b81d2b;
+            color: #fff;
+        }
+
+        .btn-green {
+            background: #43aa8b;
+            color: #fff;
+            border-radius: 2rem;
+            border: none;
+            font-weight: 600;
+        }
+
+        .btn-green:hover {
+            background: #2d7a5f;
+            color: #fff;
+        }
+
+        .icon-blue {
+            color: #0077b6;
+        }
+
+        .icon-pink {
+            color: #e63946;
+        }
+
+        .icon-green {
+            color: #43aa8b;
+        }
+
+        .section-divider {
+            width: 100%;
+            height: 60px;
+            display: block;
+            margin-bottom: -1px;
+        }
+
+        .floating-card {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 1.5px 6px rgba(0, 119, 182, 0.08);
+            border-radius: 1.5rem;
+            background: #fff;
+            padding: 2rem 1.5rem;
+            margin-bottom: 2rem;
+            transition: transform 0.2s;
+        }
+
+        .floating-card:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 16px 48px rgba(0, 119, 182, 0.10), 0 2px 8px rgba(67, 170, 139, 0.10);
+        }
+
+        .hero-svg-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .navbar-modern {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 16px rgba(20, 33, 61, 0.04);
+            border-bottom: 1px solid #eaeaea;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
+        .navbar-modern .navbar-brand {
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: #14213d !important;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .navbar-modern .navbar-brand img {
+            height: 36px;
+            border-radius: 0.5rem;
+            margin-right: 0.5rem;
+        }
+
+        .navbar-modern .nav-link {
+            color: #14213d !important;
+            font-weight: 500;
+            font-size: 1.08rem;
+            margin-right: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .navbar-modern .nav-link.active,
+        .navbar-modern .nav-link:hover {
+            color: #0077b6 !important;
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        /* Landing animation */
+        .landing-section {
+            min-height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(120deg, #f8fafc 0%, #e3f6f9 100%);
+        }
+
+        .landing-bg-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .landing-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .landing-logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: scale(0.7);
+            animation: logoIn 1s 0.2s forwards cubic-bezier(.68, -0.55, .27, 1.55);
+            box-shadow: 0 8px 32px rgba(0, 119, 182, 0.10);
+            border-radius: 1.5rem;
+            background: #fff;
+            display: inline-block;
+            padding: 1.2rem;
+        }
+
+        @keyframes logoIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .landing-headline {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #14213d;
+            letter-spacing: 1px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s 1s forwards;
+        }
+
+        .landing-subheadline {
+            font-size: 1.3rem;
+            color: #0077b6;
+            margin-top: 1.2rem;
+            margin-bottom: 2.2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s 1.3s forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .landing-cta {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s 1.6s forwards;
+        }
+
+        @media (max-width: 767px) {
+            .landing-headline {
+                font-size: 2rem;
+            }
+
+            .landing-logo {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Modern Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-modern fixed-top py-2">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="logo2.png" alt="Badrish Textiles Logo">
+                <span style="font-size:1.2rem;color:#111;">Badrish Textiles</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#story">Our Story</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#capabilities">Capabilities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#whyus">Why Choose Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ichalkaranji">Ichalkaranji</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sustainability">Sustainability</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Animated Landing Section -->
+    <section class="landing-section d-flex align-items-center justify-content-center">
+        <svg class="landing-bg-svg" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="200" cy="200" r="180" fill="#0077b6" fill-opacity="0.10" />
+            <circle cx="1240" cy="100" r="140" fill="#e63946" fill-opacity="0.10" />
+            <ellipse cx="900" cy="600" rx="320" ry="120" fill="#43aa8b" fill-opacity="0.10" />
+            <ellipse cx="400" cy="700" rx="220" ry="90" fill="#0077b6" fill-opacity="0.07" />
+        </svg>
+        <div class="landing-content w-100 position-relative" style="z-index:2;">
+            <span class="landing-logo" id="main-logo"
+                style="opacity:0;transform:scale(0.7);transition:all 0.7s cubic-bezier(.68,-0.55,.27,1.55);width:120px;height:120px;background:#fff;box-shadow:0 8px 32px rgba(0,119,182,0.10);border-radius:1.5rem;display:inline-block;padding:1.2rem;">
+                <img src="logo2.png" alt="Badrish Textiles Logo" style="width:100%;height:100%;object-fit:contain;">
+            </span>
+            <div id="brand-text" style="opacity:0;transition:opacity 0.7s 0.2s;">
+                <div class="landing-headline" style="font-size:2.2rem;margin-top:1.2rem;color:#111;">Badrish <span
+                        style="color:#0077b6;">Textiles</span></div>
+                <div class="landing-subheadline" style="font-size:1.1rem;margin-top:0.5rem;">Premium Woven Fabrics,
+                    Engineered for Excellence</div>
+            </div>
+            <div class="landing-cta mt-4" style="opacity:0;transition:opacity 0.7s 0.2s;">
+                <a href="#capabilities" class="btn btn-blue btn-lg me-2 px-4 py-2"><i
+                        class="bi bi-grid-3x3-gap me-2"></i>Explore Our Fabrics</a>
+                <a href="#contact" class="btn btn-pink btn-lg px-4 py-2"><i class="bi bi-envelope me-2"></i>Contact
+                    Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Timeline Section -->
+    <section id="story" class="py-5 bg-light">
+        <div class="container" data-aos="fade-up">
+            <h2 class="text-center mb-5 text-pink fw-bold">Our Journey</h2>
+            <div class="timeline-zigzag">
+                <!-- 1992 -->
+                <div class="timeline-zigzag-item left">
+                    <div class="timeline-zigzag-content">
+                        <h5 class="fw-bold text-blue mb-1">Foundation</h5>
+                        <p class="mb-0">Started with handlooms, building a legacy of craftsmanship and deep fabric
+                            expertise in Ichalkaranji.</p>
+                    </div>
+                    <div class="timeline-zigzag-circle">1992</div>
+                </div>
+                <!-- 2001 -->
+                <div class="timeline-zigzag-item right">
+                    <div class="timeline-zigzag-content">
+                        <h5 class="fw-bold text-pink mb-1">First Expansion</h5>
+                        <p class="mb-0">Introduced rapier machines, enabling efficient greige fabric production and
+                            scaling up for the domestic market.</p>
+                    </div>
+                    <div class="timeline-zigzag-circle">2001</div>
+                </div>
+                <!-- 2010 -->
+                <div class="timeline-zigzag-item left">
+                    <div class="timeline-zigzag-content">
+                        <h5 class="fw-bold text-green mb-1">Technology Leap</h5>
+                        <p class="mb-0">Adopted ITEMA Cam Airjet machines from Italy, entering the garmenting fabric
+                            segment and offering dyed/finished woven fabrics.</p>
+                    </div>
+                    <div class="timeline-zigzag-circle">2010</div>
+                </div>
+                <!-- 2019 -->
+                <div class="timeline-zigzag-item right">
+                    <div class="timeline-zigzag-content">
+                        <h5 class="fw-bold text-blue mb-1">Major Scale-Up</h5>
+                        <p class="mb-0">Expanded to 30 ITEMA looms, strengthening production capacity and ensuring
+                            consistency across every meter of fabric.</p>
+                    </div>
+                    <div class="timeline-zigzag-circle">2019</div>
+                </div>
+                <!-- 2024 -->
+                <div class="timeline-zigzag-item left">
+                    <div class="timeline-zigzag-content">
+                        <h5 class="fw-bold text-pink mb-1">Next-Gen Weaving</h5>
+                        <p class="mb-0">Acquired a new unit with 25 Toyota JAT910 E-Shedding machines, enabling complex
+                            dobby designs and boosting annual capacity to 1M+ meters.</p>
+                    </div>
+                    <div class="timeline-zigzag-circle">2024</div>
+                </div>
+                <!-- Future -->
+                <div class="timeline-zigzag-item right">
+                    <div class="timeline-zigzag-content">
+                        <h5 class="fw-bold text-green mb-1">The Future</h5>
+                        <p class="mb-0">Driving innovation with sustainable yarns, digital process control, and a vision
+                            to lead India's eco-conscious textile movement.</p>
+                    </div>
+                    <div class="timeline-zigzag-circle"><i class="bi bi-stars"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <svg class="section-divider" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 Q720,90 1440,30 V60 H0 Z" fill="#f8fafc" />
+    </svg>
+
+    <!-- Stats Section -->
+    <section id="stats" class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center g-4">
+                <div class="col-6 col-md-3">
+                    <div class="floating-card" data-aos="fade-up">
+                        <div class="stat-number fs-1 fw-bold text-blue" data-count="30">0</div>
+                        <div class="stat-label fs-6">Years of Experience</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="floating-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stat-number fs-1 fw-bold text-pink" data-count="1000000">0</div>
+                        <div class="stat-label fs-6">Meters Annual Capacity</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="floating-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-number fs-1 fw-bold text-green" data-count="55">0</div>
+                        <div class="stat-label fs-6">Modern Looms</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="floating-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="stat-number fs-1 fw-bold text-blue" data-count="400">0</div>
+                        <div class="stat-label fs-6">Trusted Partners</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <svg class="section-divider" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 Q720,-30 1440,30 V60 H0 Z" fill="#fff" />
+    </svg>
+
+    <!-- About Section (with cards for symmetry) -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container" data-aos="fade-up">
+            <div class="row justify-content-center align-items-center g-5">
+                <div class="col-lg-5 text-center mb-4 mb-lg-0">
+                    <img src="logo2.png" alt="Badrish Textiles Logo" class="img-fluid rounded shadow mx-auto d-block"
+                        style="max-width: 220px;">
+                </div>
+                <div class="col-lg-7">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="floating-card h-100 text-center">
+                                <div class="mb-3"><span class="fs-1 icon-blue"><i class="bi bi-award"></i></span></div>
+                                <h5 class="fw-bold mb-2">Legacy of Craftsmanship</h5>
+                                <p>Over 30 years of expertise in weaving, dyeing, and finishing premium woven fabrics.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="floating-card h-100 text-center">
+                                <div class="mb-3"><span class="fs-1 icon-green"><i class="bi bi-gear"></i></span></div>
+                                <h5 class="fw-bold mb-2">Advanced Technology</h5>
+                                <p>Modern looms, in-house design, and process control for consistent quality and fast
+                                    delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-4 mt-1">
+                        <div class="col-md-6">
+                            <div class="floating-card h-100 text-center">
+                                <div class="mb-3"><span class="fs-1 icon-pink"><i class="bi bi-palette"></i></span>
+                                </div>
+                                <h5 class="fw-bold mb-2">Custom Solutions</h5>
+                                <p>Tailored fabrics, dobby designs, and color development to meet your exact needs.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="floating-card h-100 text-center">
+                                <div class="mb-3"><span class="fs-1 icon-blue"><i class="bi bi-truck"></i></span></div>
+                                <h5 class="fw-bold mb-2">Dependable Service</h5>
+                                <p>End-to-end production coordination and reliable, on-time delivery across India and
+                                    beyond.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <svg class="section-divider" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 Q720,90 1440,30 V60 H0 Z" fill="#f8fafc" />
+    </svg>
+
+    <!-- Our Services Section (4 cards + logo) -->
+    <section id="services" class="py-5 bg-light">
+        <div class="container" data-aos="fade-up">
+            <h2 class="text-center mb-5 text-blue fw-bold">Our Services</h2>
+            <div class="row justify-content-center align-items-center g-5 flex-lg-nowrap">
+                <div class="col-lg-4 d-flex justify-content-center mb-4 mb-lg-0">
+                    <div class="bg-white rounded shadow p-4 d-flex align-items-center justify-content-center"
+                        style="min-height:180px;">
+                        <img src="logo2.png" alt="Badrish Textiles Logo" class="img-fluid" style="max-width: 180px;">
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="floating-card h-100 text-center">
+                                <div class="mb-3"><span class="fs-1 icon-blue"><i class="bi bi-patch-check"></i></span>
+                                </div>
+                                <h5 class="fw-bold mb-2">Legacy of Craftsmanship</h5>
+                                <p>Over 30 years of expertise in weaving, dyeing, and finishing premium woven fabrics.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="floating-card h-100 text-center">
+                                <div class="mb-3"><span class="fs-1 icon-green"><i class="bi bi-gear"></i></span></div>
+                                <h5 class="fw-bold mb-2">Advanced Technology</h5>
+                                <p>Modern looms, in-house design, and process control for consistent quality and fast
+                                    delivery.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="floating-card h-100 text-center">
+                                <div class="mb-3"><span class="fs-1 icon-pink"><i class="bi bi-palette"></i></span>
+                                </div>
+                                <h5 class="fw-bold mb-2">Custom Solutions</h5>
+                                <p>Tailored fabrics, dobby designs, and color development to meet your exact needs.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="floating-card h-100 text-center">
+                                <div class="mb-3"><span class="fs-1 icon-blue"><i class="bi bi-truck"></i></span></div>
+                                <h5 class="fw-bold mb-2">Dependable Service</h5>
+                                <p>End-to-end production coordination and reliable, on-time delivery across India and
+                                    beyond.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <svg class="section-divider" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 Q720,90 1440,30 V60 H0 Z" fill="#f8fafc" />
+    </svg>
+
+    <!-- Vision & Sustainability Section (merged) -->
+    <section id="vision" class="py-5 bg-light">
+        <div class="container" data-aos="fade-up">
+            <h2 class="text-center mb-5 text-blue fw-bold">Vision & Sustainability</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-3">
+                    <div class="floating-card text-center">
+                        <div class="mb-3"><span class="fs-1 icon-green"><i class="bi bi-globe2"></i></span></div>
+                        <h5 class="fw-bold mb-2">Sustainable Innovation</h5>
+                        <p>Expanding into eco-friendly yarns (hemp, banana, bamboo, lotus) and launching a capsule
+                            collection of sustainable garments.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="floating-card text-center">
+                        <div class="mb-3"><span class="fs-1 icon-blue"><i class="bi bi-cpu"></i></span></div>
+                        <h5 class="fw-bold mb-2">Smart Manufacturing</h5>
+                        <p>Investing in digital process control, real-time quality monitoring, and automation for
+                            precision and speed.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="floating-card text-center">
+                        <div class="mb-3"><span class="fs-1 icon-pink"><i class="bi bi-people"></i></span></div>
+                        <h5 class="fw-bold mb-2">Collaborative Growth</h5>
+                        <p>Building long-term partnerships with brands, garment manufacturers, and innovators in the
+                            textile ecosystem.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="floating-card text-center">
+                        <div class="mb-3"><span class="fs-1 icon-blue"><i class="bi bi-graph-up-arrow"></i></span></div>
+                        <h5 class="fw-bold mb-2">Market Expansion</h5>
+                        <p>Reaching new geographies and segments, with a focus on premium, value-added woven fabrics.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="floating-card text-center">
+                        <div class="mb-3"><span class="fs-1 icon-green"><i class="bi bi-leaf"></i></span></div>
+                        <h5 class="fw-bold mb-2">Eco-Conscious Fabrics</h5>
+                        <p>Lower water usage, biodegradable & compostable fabrics, and reduced chemical inputs for a
+                            greener tomorrow.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p class="fw-bold mb-1">Coming Soon: Our first capsule collection of sustainable garments.</p>
+                <a href="#contact" class="btn btn-green btn-lg">Partner With Us</a>
+            </div>
+        </div>
+    </section>
+
+    <svg class="section-divider" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 Q720,-30 1440,30 V60 H0 Z" fill="#fff" />
+    </svg>
+
+    <!-- Capabilities Section (symmetric cards) -->
+    <section id="capabilities" class="py-5 bg-light">
+        <div class="container" data-aos="fade-up">
+            <h2 class="text-center mb-5 text-blue fw-bold">Capabilities</h2>
+            <div class="row g-4 justify-content-center">
+                <!-- <div class="col-md-6 col-lg-3">
+                    <div class="floating-card h-100 text-center">
+                        <div class="mb-3"><span class="fs-1 icon-blue"><i class="bi bi-grid-3x3-gap"></i></span></div>
+                        <h5 class="fw-bold mb-2">Premium Woven Fabrics</h5>
+                        <p>High-quality cotton and blended fabrics for shirting, bottom wear, and uniforms. Plain,
+                            Twill, Dobby, and custom weaves.</p>
+                    </div>
+                </div> -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="floating-card h-100 text-center">
+                        <div class="mb-3"><span class="fs-1 icon-pink"><i class="bi bi-palette"></i></span></div>
+                        <h5 class="fw-bold mb-2">Color & Shade Consistency</h5>
+                        <p>In-house color development, market-driven palettes, and strict shade control for every order.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="floating-card h-100 text-center">
+                        <div class="mb-3"><span class="fs-1 icon-green"><i class="bi bi-brush"></i></span></div>
+                        <h5 class="fw-bold mb-2">Custom Dobby Designs</h5>
+                        <p>Expert in-house textile designer for intricate dobby patterns, tailored to your needs.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="floating-card h-100 text-center">
+                        <div class="mb-3"><span class="fs-1 icon-blue"><i class="bi bi-gear"></i></span></div>
+                        <h5 class="fw-bold mb-2">End-to-End Production</h5>
+                        <p>From yarn sourcing to weaving, dyeing, and finishing—complete process control for
+                            reliability.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4 justify-content-center mt-1">
+                <div class="col-md-6 col-lg-3">
+                    <div class="floating-card h-100 text-center">
+                        <div class="mb-3"><span class="fs-1 icon-pink"><i class="bi bi-lightning-charge"></i></span>
+                        </div>
+                        <h5 class="fw-bold mb-2">Fast Turnaround</h5>
+                        <p>Streamlined procurement and weaving for quick, on-time delivery—no quality compromise.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <svg class="section-divider" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 Q720,90 1440,30 V60 H0 Z" fill="#f8fafc" />
+    </svg>
+
+    <!-- Why Choose Us Section (symmetric cards) -->
+    <section id="whyus" class="py-5 bg-light">
+        <div class="container" data-aos="fade-up">
+            <h2 class="text-center mb-5 text-green fw-bold">Why Choose Badrish Textiles</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-3">
+                    <div class="floating-card h-100 text-center">
+                        <div class="mb-3"><span class="fs-1 icon-blue"><i class="bi bi-award"></i></span></div>
+                        <h6 class="fw-bold mb-2">Proven Expertise</h6>
+                        <p>Decades of experience and a reputation for reliability in the textile industry.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="floating-card h-100 text-center">
+                        <div class="mb-3"><span class="fs-1 icon-pink"><i class="bi bi-people"></i></span></div>
+                        <h6 class="fw-bold mb-2">Customer Focus</h6>
+                        <p>Tailored, practical, and cost-effective solutions for every client.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="floating-card h-100 text-center">
+                        <div class="mb-3"><span class="fs-1 icon-green"><i class="bi bi-truck"></i></span></div>
+                        <h6 class="fw-bold mb-2">Timely Delivery</h6>
+                        <p>Safe, on-time delivery—your satisfaction is our top priority.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="floating-card h-100 text-center">
+                        <div class="mb-3"><span class="fs-1 icon-blue"><i class="bi bi-shield-check"></i></span></div>
+                        <h6 class="fw-bold mb-2">Quality & Ethics</h6>
+                        <p>Superior materials, ethical business, and a commitment to improvement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <svg class="section-divider" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 Q720,-30 1440,30 V60 H0 Z" fill="#fff" />
+    </svg>
+
+    <!-- Ichalkaranji Section -->
+    <section id="ichalkaranji" class="py-5 bg-light">
+        <div class="container" data-aos="fade-up">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 order-lg-2 text-center">
+                    <img src="logo2.png" alt="Ichalkaranji" class="img-fluid rounded shadow" style="max-width:320px;">
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <h2 class="fw-bold mb-4 text-blue">Ichalkaranji: The Manchester of India</h2>
+                    <h5 class="fw-bold text-green">A Textile Powerhouse</h5>
+                    <p>Ichalkaranji is India's textile heartbeat, home to 1,25,000+ looms and a thriving ecosystem of
+                        skilled artisans, advanced machinery, and world-class processing units. Our location ensures
+                        access to the best technology, talent, and supply chain efficiency.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><i class="bi bi-arrow-right-circle-fill icon-blue me-2"></i> Massive loom
+                            network: shuttle, Airjet, Rapier, Jacquard</li>
+                        <li class="mb-2"><i class="bi bi-arrow-right-circle-fill icon-pink me-2"></i> Strong dyeing and
+                            finishing ecosystem</li>
+                        <li class="mb-2"><i class="bi bi-arrow-right-circle-fill icon-green me-2"></i> Product
+                            versatility: shirts, trousers, uniforms, export-quality</li>
+                        <li class="mb-2"><i class="bi bi-arrow-right-circle-fill icon-blue me-2"></i> Generations of
+                            weaving expertise</li>
+                        <li class="mb-2"><i class="bi bi-arrow-right-circle-fill icon-pink me-2"></i> Strategic location
+                            near Mumbai & Pune</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <svg class="section-divider" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 Q720,90 1440,30 V60 H0 Z" fill="#f8fafc" />
+    </svg>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container" data-aos="fade-up">
+            <h2 class="text-center mb-5 text-blue fw-bold">Contact Us</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="floating-card p-4">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <div class="row g-3 mt-2">
+                                <div class="col-12">
+                                    <textarea class="form-control" rows="5" placeholder="Your Message"
+                                        required></textarea>
+                                </div>
+                            </div>
+                            <div class="row g-3 mt-2">
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-blue btn-lg px-5"><i
+                                            class="bi bi-send me-2"></i>Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center py-4 mt-5" style="background:#f8fafc;color:#14213d;">
+        <div class="container">
+            <small>&copy; 2024 Badrish Textiles. All rights reserved.</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <!-- CountUp.js for stat animations -->
+    <script src="https://cdn.jsdelivr.net/npm/countup.js@2.6.2/dist/countUp.umd.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
