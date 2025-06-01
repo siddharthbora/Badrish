@@ -162,6 +162,7 @@
             position: relative;
             overflow: hidden;
             background: linear-gradient(120deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 0;
         }
 
         .landing-bg-svg {
@@ -182,13 +183,17 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 60vh;
+            min-height: 100vh;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
 
         .landing-logo {
-            width: 240px;
-            height: 240px;
-            margin-bottom: 2rem;
+            width: 280px;
+            height: 280px;
+            margin-bottom: 3rem;
             opacity: 0;
             transform: scale(0.7);
             animation: logoFadeIn 1.2s 0.4s forwards cubic-bezier(.68, -0.55, .27, 1.55);
@@ -202,6 +207,12 @@
         .landing-brand-fade {
             opacity: 0;
             transition: opacity 0.5s 0.5s;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .landing-brand-fade.visible {
@@ -213,16 +224,120 @@
         }
 
         .landing-subheadline {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             color: #1a4b6e;
-            margin-bottom: 0;
-            font-weight: 500;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            line-height: 1.4;
+            text-align: center;
+            width: 100%;
         }
 
-        @keyframes logoFadeIn {
+        .landing-description {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            line-height: 1.6;
+            padding: 0 1rem;
+            text-align: center;
+        }
+
+        .landing-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s 1s forwards;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .landing-btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-radius: 2rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            min-width: 180px;
+        }
+
+        .landing-btn-primary {
+            background: #1a4b6e;
+            color: white;
+        }
+
+        .landing-btn-primary:hover {
+            background: #153a56;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .landing-btn-secondary {
+            background: white;
+            color: #1a4b6e;
+            border: 2px solid #1a4b6e;
+        }
+
+        .landing-btn-secondary:hover {
+            background: #f8f9fa;
+            color: #1a4b6e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes fadeInUp {
             to {
                 opacity: 1;
-                transform: scale(1);
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .landing-content {
+                min-height: 100vh;
+                padding: 2rem 1rem;
+                justify-content: center;
+            }
+
+            .landing-logo {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 2rem;
+            }
+
+            .landing-subheadline {
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+                padding: 0 1rem;
+            }
+
+            .landing-description {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+                padding: 0 1rem;
+            }
+
+            .landing-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+                gap: 1rem;
+                margin: 0 auto;
+            }
+
+            .landing-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 0.9rem 2rem;
             }
         }
 
@@ -266,66 +381,106 @@
         .timeline-zigzag-circle {
             position: absolute;
             top: 50%;
-            right: -1.5rem;
-            width: 3.2rem;
-            height: 3.2rem;
-            background: #fff;
+            right: -1.6rem;
+            left: auto;
+            transform: translateY(-50%);
+            width: 3.2em;
+            height: 3.2em;
+            background: transparent;
             border: 2px solid #1a4b6e;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
             font-weight: 700;
             color: #1a4b6e;
-            transform: translateY(-50%);
-            z-index: 1;
-            font-size: 1.1rem;
+            z-index: 10;
+            font-size: clamp(0.8em, 2vw, 1.1em);
+            min-width: 0;
+            max-width: 100%;
             padding: 0;
             line-height: 1;
             letter-spacing: 0.02em;
             font-family: inherit;
-            overflow: hidden;
             box-sizing: border-box;
         }
 
+        .timeline-zigzag-item.right .timeline-zigzag-circle {
+            left: -1.6rem;
+            right: auto;
+        }
+
         .timeline-zigzag-circle.circle-red {
-            background: #8e3b4d;
-            color: #fff;
+            background: transparent;
+            color: #8e3b4d;
             border: 2px solid #8e3b4d;
         }
 
-        .timeline-zigzag-item.right .timeline-zigzag-circle {
-            right: auto;
-            left: -1.5rem;
-        }
-
         @media (max-width: 767px) {
+            .timeline-zigzag {
+                padding: 1rem 0 !important;
+            }
+
             .timeline-zigzag::before {
-                left: 1.5rem;
+                left: 1.2rem !important;
             }
 
             .timeline-zigzag-item {
-                width: 100%;
-                padding-left: 3rem;
-                padding-right: 0;
+                width: 100% !important;
+                padding-left: 2.8rem !important;
+                padding-right: 0.5rem !important;
+                margin-bottom: 2rem !important;
             }
 
             .timeline-zigzag-item.right {
-                margin-left: 0;
+                margin-left: 0 !important;
+                padding-left: 2.8rem !important;
+                padding-right: 0.5rem !important;
             }
 
             .timeline-zigzag-circle {
-                left: 0;
-                right: auto;
+                left: -0.2rem !important;
+                right: auto !important;
+                width: 2.6em !important;
+                height: 2.6em !important;
+                font-size: 1em !important;
+                min-width: 0 !important;
+                max-width: 100% !important;
+                z-index: 2 !important;
+                background: transparent !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                white-space: nowrap !important;
             }
 
-            .landing-logo {
-                width: 150px;
-                height: 150px;
+            .timeline-zigzag-circle.circle-red {
+                background: transparent !important;
+                color: #8e3b4d !important;
+                border: 2px solid #8e3b4d !important;
             }
 
-            .landing-subheadline {
-                font-size: 1.05rem;
+            .timeline-zigzag-content {
+                padding: 1rem 1rem 1rem 1.2rem !important;
+                margin-left: 0 !important;
+                border-radius: 0.8rem !important;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+                position: relative !important;
+            }
+
+            .timeline-zigzag-content h5 {
+                font-size: 1.08rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .timeline-zigzag-content p {
+                font-size: 0.93rem !important;
+                margin-bottom: 0 !important;
             }
         }
 
@@ -383,6 +538,29 @@
             color: #2d6a4f !important;
         }
     </style>
+    <!-- Force timeline circle styles for all screens -->
+    <style>
+        .timeline-zigzag-circle,
+        .timeline-zigzag-circle.circle-red {
+            background: transparent !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            white-space: nowrap !important;
+            min-width: 0 !important;
+            max-width: 100% !important;
+            font-size: clamp(0.8em, 2vw, 1.1em) !important;
+            color: #1a4b6e !important;
+            border: 2px solid #1a4b6e !important;
+        }
+
+        .timeline-zigzag-circle.circle-red {
+            color: #8e3b4d !important;
+            border: 2px solid #8e3b4d !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -427,6 +605,18 @@
             <div id="brand-text" class="landing-brand-fade">
                 <div class="landing-headline">Badrish <span style="color:#0077b6;">Textiles</span></div>
                 <div class="landing-subheadline">Weaving Excellence from the Heart of India</div>
+                <p class="landing-description">
+                    Discover premium woven fabrics crafted with precision and passion.
+                    From traditional craftsmanship to modern innovation, we deliver excellence in every thread.
+                </p>
+                <div class="landing-buttons">
+                    <a href="#contact" class="landing-btn landing-btn-primary">
+                        <i class="bi bi-envelope"></i> Get in Touch
+                    </a>
+                    <a href="#aboutus" class="landing-btn landing-btn-secondary">
+                        <i class="bi bi-info-circle"></i> Learn More
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -434,30 +624,29 @@
     <!-- About Us Section (modern, visually appealing) -->
     <section id="aboutus" class="py-5 bg-light">
         <div class="container" data-aos="fade-up">
-            <div class="row align-items-center justify-content-center g-5">
-                <div class="col-lg-5 text-center mb-4 mb-lg-0">
-                    <img src="logo2.png" alt="Badrish Textiles Logo" class="img-fluid rounded shadow-lg"
-                        style="max-width: 260px; border: 6px solid #f8fafc;">
-                </div>
-                <div class="col-lg-7">
-                    <div class="aboutus-card p-4 p-md-5 rounded shadow-sm bg-white">
-                        <h2 class="fw-bold mb-3 text-blue">About Us</h2>
-                        <h4 class="mb-3" style="color:#0077b6;font-weight:600;">Weaving Excellence from the Heart of
-                            India</h4>
-                        <blockquote class="blockquote mb-4"
-                            style="border-left:4px solid #0077b6;padding-left:1rem;font-size:1.1rem;color:#555;">
-                            "Blending tradition and technology to deliver quality, innovation, and trust in every
-                            thread."
-                        </blockquote>
-                        <p style="font-size:1.08rem;">Badrish Textiles is a family-owned leader in premium woven
-                            fabrics. With over 25 years of experience, we serve global markets with a customer-first
-                            approach and a passion for excellence. Our journey is built on a foundation of integrity,
-                            innovation, and a commitment to sustainable growth.<br><br>
-                            <span style="color:#0077b6;font-weight:500;">Our Vision:</span> To be India's most trusted
-                            name in woven fabrics, delivering value and quality to every client, every time.
-                        </p>
-                    </div>
-                </div>
+            <h2 class="text-center mb-3 fw-bold" style="color:#1a4b6e; letter-spacing:0.5px; font-size:2.1rem;">About Us
+            </h2>
+            <hr style="width:60px; border:2px solid #1a4b6e; opacity:0.15; margin:0 auto 2.2rem auto;">
+            <div style="width:100%; padding: 0 0 0 0;">
+                <p
+                    style="font-size:1.18rem; line-height:1.85; width:100%; margin:0; color:#222; background:none; padding:2.2rem 0 0 0; text-align:left;">
+                    Welcome to Badrish Textiles. I'm proud to lead a company that stands for more than just fabric—we
+                    stand for partnership, progress, and possibility. From our roots in Ichalkaranji, I have grown
+                    Badrish Textiles into a trusted name for businesses seeking reliability, innovation, and a personal
+                    touch in every order. My journey began with a simple belief: that textiles are not just products,
+                    but the foundation of great brands and lasting relationships.<br><br>
+                    Every day, I work closely with my team to blend traditional weaving expertise with the latest
+                    technology, ensuring that our fabrics are not only beautiful and durable, but also tailored to the
+                    unique needs of each client. Whether you're a startup looking for your first signature fabric or an
+                    established brand scaling up, I am committed to making your sourcing experience smooth, transparent,
+                    and rewarding.<br><br>
+                    At Badrish Textiles, I believe in doing business the right way—honest communication, ethical
+                    practices, and a relentless focus on quality. My clients value the fact that I am personally
+                    involved in every project, from initial consultation to final delivery. This hands-on approach means
+                    you get more than just a supplier—you get a partner who cares about your success.<br><br>
+                    Let's build something remarkable together. If you're ready to experience a new standard in textile
+                    manufacturing, I invite you to connect with me and discover what sets Badrish Textiles apart.
+                </p>
             </div>
         </div>
     </section>
@@ -514,7 +703,7 @@
                         <p class="mb-0">Acquired a new unit with 25 Toyota JAT910 E-Shedding machines, enabling complex
                             dobby designs and boosting annual capacity to 1M+ meters.</p>
                     </div>
-                    <div class="timeline-zigzag-circle circle-red">2024</div>
+                    <div class="timeline-zigzag-circle" style="color: #8e3b4d; border-color: #8e3b4d;">2024</div>
                 </div>
                 <!-- Future -->
                 <div class="timeline-zigzag-item right">
