@@ -335,9 +335,13 @@
             }
 
             .landing-btn {
+                font-size: 0.97rem;
+                padding: 0.55rem 0.9rem;
+                min-width: 110px;
+                max-width: 320px;
                 width: 100%;
-                justify-content: center;
-                padding: 0.9rem 2rem;
+                border-radius: 1.2rem;
+                line-height: 1.2;
             }
         }
 
@@ -537,6 +541,89 @@
         .text-green {
             color: #2d6a4f !important;
         }
+
+        /* Responsive button and card sizing for mobile */
+        @media (max-width: 767px) {
+            .landing-btn {
+                font-size: 0.97rem;
+                padding: 0.55rem 0.9rem;
+                min-width: 110px;
+                max-width: 320px;
+                width: 100%;
+                border-radius: 1.2rem;
+                line-height: 1.2;
+            }
+
+            .landing-buttons {
+                gap: 0.7rem;
+            }
+
+            .floating-card {
+                min-width: 140px;
+                max-width: 95vw;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 1.1rem 0.7rem !important;
+            }
+
+            .stat-number {
+                font-size: 1.3rem !important;
+            }
+
+            .stat-label {
+                font-size: 0.93rem !important;
+            }
+        }
+
+        /* Symmetric stat cards for OCD-perfect look */
+        #stats .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            margin: 0;
+        }
+
+        #stats .floating-card {
+            min-width: 0;
+            max-width: 100%;
+            min-height: 110px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 767px) {
+            #stats .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.7rem;
+                padding: 0 0.5rem;
+            }
+
+            #stats .floating-card {
+                min-width: 0;
+                max-width: 100%;
+                min-height: 100px;
+                padding: 1rem 0.5rem !important;
+                margin: 0;
+            }
+
+            .stat-number {
+                font-size: 1.2rem !important;
+            }
+
+            .stat-label {
+                font-size: 0.91rem !important;
+            }
+        }
+
+        @media (max-width: 400px) {
+            #stats .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
     <!-- Force timeline circle styles for all screens -->
     <style>
@@ -623,30 +710,22 @@
     <!-- Stats Section - Softer look -->
     <section id="stats" class="py-5 bg-light">
         <div class="container">
-            <div class="row justify-content-center g-4">
-                <div class="col-6 col-md-3">
-                    <div class="floating-card" data-aos="fade-up" style="padding: 1.5rem;">
-                        <div class="stat-number" style="font-size:2rem;font-weight:500;color:#3a5a7a;">30</div>
-                        <div class="stat-label text-secondary small mt-2">Years of Experience</div>
-                    </div>
+            <div class="stats-grid">
+                <div class="floating-card" data-aos="fade-up">
+                    <div class="stat-number" style="font-size:2rem;font-weight:500;color:#3a5a7a;">30</div>
+                    <div class="stat-label text-secondary small mt-2">Years of Experience</div>
                 </div>
-                <div class="col-6 col-md-3">
-                    <div class="floating-card" data-aos="fade-up" data-aos-delay="100" style="padding: 1.5rem;">
-                        <div class="stat-number" style="font-size:2rem;font-weight:500;color:#b76d7a;">10+ Million</div>
-                        <div class="stat-label text-secondary small mt-2">Annual Capacity</div>
-                    </div>
+                <div class="floating-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-number" style="font-size:2rem;font-weight:500;color:#b76d7a;">1 Million+</div>
+                    <div class="stat-label text-secondary small mt-2">Annual Capacity</div>
                 </div>
-                <div class="col-6 col-md-3">
-                    <div class="floating-card" data-aos="fade-up" data-aos-delay="200" style="padding: 1.5rem;">
-                        <div class="stat-number" style="font-size:2rem;font-weight:500;color:#4e7d6a;">55</div>
-                        <div class="stat-label text-secondary small mt-2">Modern Looms</div>
-                    </div>
+                <div class="floating-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-number" style="font-size:2rem;font-weight:500;color:#4e7d6a;">55</div>
+                    <div class="stat-label text-secondary small mt-2">Modern Looms</div>
                 </div>
-                <div class="col-6 col-md-3">
-                    <div class="floating-card" data-aos="fade-up" data-aos-delay="300" style="padding: 1.5rem;">
-                        <div class="stat-number" style="font-size:2rem;font-weight:500;color:#3a5a7a;">250+</div>
-                        <div class="stat-label text-secondary small mt-2">Active Clients</div>
-                    </div>
+                <div class="floating-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-number" style="font-size:2rem;font-weight:500;color:#3a5a7a;">250+</div>
+                    <div class="stat-label text-secondary small mt-2">Active Clients</div>
                 </div>
             </div>
         </div>
@@ -848,7 +927,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="floating-card h-100 text-center" style="padding: 1.2rem;">
                         <div class="mb-2"><span class="fs-2 icon-blue"><i class="bi bi-award"></i></span></div>
-                        <h6 class="fw-bold mb-1 text-blue">25+ Years Experience</h6>
+                        <h6 class="fw-bold mb-1 text-blue">30+ Years Experience</h6>
                         <p class="text-muted small mb-0">Decades of expertise in textiles</p>
                     </div>
                 </div>
